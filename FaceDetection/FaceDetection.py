@@ -13,6 +13,6 @@ while True:
 
     faces = faceCascade.detectMultiScale(img, 1.1, 4)
     for x, y, w, h in faces:
-        cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 5)
+        cv2.rectangle(img, (x, y), (x+w, y+h), (20, 100, 0), 5)
 
-    cv2.imshow('WebCam', img)
+    cv2.imshow('Face Detection', img)
