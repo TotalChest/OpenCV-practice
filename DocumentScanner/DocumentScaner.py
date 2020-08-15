@@ -29,7 +29,6 @@ def get_contour(prepare_img):
 
 
 def reorder(contour):
-    print(contour.shape)
     contour = contour.reshape((4,2))
     new_contour = np.zeros((4,2), np.float32)
     add = np.sum(contour, axis=1)
@@ -45,6 +44,7 @@ def get_warp(img, contour):
     target = np.float32([[0, 0], [500, 0], [0, 500], [500, 500]])
     transform = cv2.getPerspectiveTransform(contour, target)
     warpped_img = cv2.warpPerspective(img, transform, (500, 500))
+    warpped_img = cv2.resize(warpped_img[10: -10, 10: -10], (500, 500))
     return warpped_img
 
 
